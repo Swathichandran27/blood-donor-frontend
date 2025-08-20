@@ -21,7 +21,7 @@ const ManageAppointments = () => {
   const [submittedFeedbacks, setSubmittedFeedbacks] = useState([]);
   const navigate = useNavigate();
 
-  const BASE_URL = "http://localhost:8080/api/appointments";
+  const BASE_URL = "https://blood-donor-backend-cibk.onrender.com/api/appointments";
   const user = authService.getUserData();
   const userId = user?.id;
   const headers = authService.getAuthHeaders();

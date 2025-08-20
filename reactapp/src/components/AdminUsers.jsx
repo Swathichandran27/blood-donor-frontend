@@ -14,7 +14,7 @@ const AdminUsers = () => {
   // Fetch all users
   const fetchUsers = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/api/users", {
+      const response = await axios.get("https://blood-donor-backend-cibk.onrender.com/api/users", {
         headers: { Authorization: `Bearer ${token}` }
       });
       setUsers(response.data);
@@ -33,7 +33,7 @@ const AdminUsers = () => {
   const deleteUser = async (id) => {
     if (!window.confirm("Are you sure you want to delete this user?")) return;
     try {
-      await axios.delete(`http://localhost:8080/api/users/${id}`, {
+      await axios.delete(`https://blood-donor-backend-cibk.onrender.com/api/users/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setUsers(prev => prev.filter(u => u.id !== id));
@@ -54,7 +54,7 @@ const AdminUsers = () => {
 
   const saveEdit = async (id) => {
     try {
-      const response = await axios.put(`http://localhost:8080/api/users/${id}`, formData, {
+      const response = await axios.put(`https://blood-donor-backend-cibk.onrender.com/api/users/${id}`, formData, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setUsers(prev => prev.map(u => u.id === id ? response.data : u));

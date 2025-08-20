@@ -31,7 +31,7 @@ const AdminDonationcenters = () => {
   const fetchCenters = async () => {
     try {
       setLoading(true);
-      const res = await axios.get("http://localhost:8080/api/donationCenters", {
+      const res = await axios.get("https://blood-donor-backend-cibk.onrender.com/api/donationCenters", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setCenters(res.data);
@@ -61,12 +61,12 @@ const AdminDonationcenters = () => {
     e.preventDefault();
     try {
       if (editing) {
-        await axios.put(`http://localhost:8080/api/donationCenters/${form.id}`, form, {
+        await axios.put(`https://blood-donor-backend-cibk.onrender.com/api/donationCenters/${form.id}`, form, {
           headers: { Authorization: `Bearer ${token}` },
         });
         toast.success("Donation center updated successfully");
       } else {
-        await axios.post(`http://localhost:8080/api/donationCenters`, form, {
+        await axios.post(`https://blood-donor-backend-cibk.onrender.com/api/donationCenters`, form, {
           headers: { Authorization: `Bearer ${token}` },
         });
         toast.success("Donation center added successfully");

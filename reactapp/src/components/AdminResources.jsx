@@ -12,7 +12,7 @@ const AdminResources = () => {
 
   // Fetch existing resources
   useEffect(() => {
-    axios.get("http://localhost:8080/api/resources")
+    axios.get("https://blood-donor-backend-cibk.onrender.com/api/resources")
       .then((res) => setResources(res.data))
       .catch((err) => console.error("Error fetching resources", err));
   }, []);
@@ -26,7 +26,7 @@ const AdminResources = () => {
   // Submit new resource
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:8080/api/resources/add", formData)
+    axios.post("https://blood-donor-backend-cibk.onrender.com/api/resources/add", formData)
       .then((res) => {
         setResources([...resources, res.data]);
         setFormData({ title: "", content: "", type: "Article" });

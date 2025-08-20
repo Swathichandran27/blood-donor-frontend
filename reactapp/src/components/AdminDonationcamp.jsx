@@ -40,7 +40,7 @@ const AdminDonationcamp = () => {
   const fetchCamps = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("http://localhost:8080/api/donationCamps");
+      const response = await axios.get("https://blood-donor-backend-cibk.onrender.com/api/donationCamps");
       setCamps(response.data);
     } catch (err) {
       setError("Failed to fetch camps. Please try again.");
@@ -59,9 +59,9 @@ const AdminDonationcamp = () => {
     try {
       setLoading(true);
       if (isEditing) {
-        await axios.put(`http://localhost:8080/api/donationCamps/${formData.id}`, formData);
+        await axios.put(`https://blood-donor-backend-cibk.onrender.com/api/donationCamps/${formData.id}`, formData);
       } else {
-        await axios.post("http://localhost:8080/api/donationCamps", formData);
+        await axios.post("https://blood-donor-backend-cibk.onrender.com/api/donationCamps", formData);
       }
       resetForm();
       fetchCamps();
@@ -99,7 +99,7 @@ const AdminDonationcamp = () => {
     if (!window.confirm("Are you sure you want to delete this camp?")) return;
     try {
       setLoading(true);
-      await axios.delete(`http://localhost:8080/api/donationCamps/${id}`);
+      await axios.delete(`https://blood-donor-backend-cibk.onrender.com/api/donationCamps/${id}`);
       fetchCamps();
     } catch (err) {
       setError("Failed to delete camp. Please try again.");

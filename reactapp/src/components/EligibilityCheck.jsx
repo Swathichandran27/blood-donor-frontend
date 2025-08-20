@@ -49,7 +49,7 @@ const EligibilityCheck = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:8080/api/users/eligibility-check`, // ✅ tie check to logged-in user
+        `https://blood-donor-backend-cibk.onrender.com/api/users/eligibility-check`, // ✅ tie check to logged-in user
         formData,
         {
           headers: authService.getAuthHeaders(), // ✅ attach token

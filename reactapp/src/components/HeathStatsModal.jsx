@@ -13,7 +13,7 @@ const HealthStatsModal = ({ appointment, onClose, onSave }) => {
   const saveStats = async () => {
     try {
       await axios.post(
-        `http://localhost:8080/api/healthstats/${appointment.id}`,
+        `https://blood-donor-backend-cibk.onrender.com/api/healthstats/${appointment.id}`,
         { pulse, systolicPressure: systolic, diastolicPressure: diastolic, notes },
         { headers: { Authorization: `Bearer ${token}` } }
       );

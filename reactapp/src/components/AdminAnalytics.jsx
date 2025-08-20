@@ -51,7 +51,7 @@ useEffect(() => {
   };
 
   // Fetch summary data
-  axios.get("http://localhost:8080/api/reports/summary", {
+  axios.get("https://blood-donor-backend-cibk.onrender.com/api/reports/summary", {
         headers: authService.getAuthHeaders(),
       })
     .then((res) => {
@@ -68,7 +68,7 @@ useEffect(() => {
     });
 
   // Fetch monthly data
-  axios.get("http://localhost:8080/api/reports/monthly", config)
+  axios.get("https://blood-donor-backend-cibk.onrender.com/api/reports/monthly", config)
     .then((res) => {
       setMonthlyData(res.data);
     })

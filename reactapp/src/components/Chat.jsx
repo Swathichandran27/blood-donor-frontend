@@ -29,7 +29,7 @@ const Chat = () => {
   const typingTimeoutRef = useRef(null);
 
   useEffect(() => {
-    const socket = new SockJS("http://localhost:8080/ws");
+    const socket = new SockJS("https://blood-donor-backend-cibk.onrender.com/ws");
     const stompClient = new Client({
       webSocketFactory: () => socket,
       reconnectDelay: 5000,

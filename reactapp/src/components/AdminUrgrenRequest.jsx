@@ -18,7 +18,7 @@ const AdminUrgentRequest = () => {
 
   const fetchRequests = async () => {
     try {
-      const res = await axios.get("http://localhost:8080/api/urgent-requests/all");
+      const res = await axios.get("https://blood-donor-backend-cibk.onrender.com/api/urgent-requests/all");
       setRequests(res.data);
     } catch (error) {
       console.error("Error fetching urgent requests:", error);
@@ -32,7 +32,7 @@ const AdminUrgentRequest = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8080/api/urgent-requests/add", formData);
+      await axios.post("https://blood-donor-backend-cibk.onrender.com/api/urgent-requests/add", formData);
       setFormData({
         bloodGroup: "",
         quantityRequired: "",
@@ -49,7 +49,7 @@ const AdminUrgentRequest = () => {
 
   const markFulfilled = async (id) => {
     try {
-      await axios.put(`http://localhost:8080/api/urgent-requests/fulfill/${id}`);
+      await axios.put(`https://blood-donor-backend-cibk.onrender.com/api/urgent-requests/fulfill/${id}`);
       fetchRequests();
     } catch (error) {
       console.error("Error marking fulfilled:", error);

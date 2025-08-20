@@ -30,13 +30,13 @@ const DonationCenters = () => {
   const fetchCenters = async (query = "") => { 
     try {
       setLoading(true);
-      let url = "http://localhost:8080/api/donationCenters";
+      let url = "https://blood-donor-backend-cibk.onrender.com/api/donationCenters";
 
       if (query) {
         if (/^\d+$/.test(query)) {
-          url = `http://localhost:8080/api/donationCenters/search/pincode?pincode=${query}`;
+          url = `https://blood-donor-backend-cibk.onrender.com/api/donationCenters/search/pincode?pincode=${query}`;
         } else {
-          url = `http://localhost:8080/api/donationCenters/search/city?city=${query}`;
+          url = `https://blood-donor-backend-cibk.onrender.com/api/donationCenters/search/city?city=${query}`;
         }
       }
 

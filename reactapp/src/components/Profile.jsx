@@ -39,7 +39,7 @@ const Profile = () => {
     if (!userId) return;
 
     axios
-      .get(`http://localhost:8080/api/users/${userId}`, {
+      .get(`https://blood-donor-backend-cibk.onrender.com/api/users/${userId}`, {
         headers: authService.getAuthHeaders(),
       })
       .then((res) => {
@@ -61,7 +61,7 @@ const Profile = () => {
 
   const handleSave = () => {
     axios
-      .put(`http://localhost:8080/api/users/${userId}`, formData, {
+      .put(`https://blood-donor-backend-cibk.onrender.com/api/users/${userId}`, formData, {
         headers: authService.getAuthHeaders(),
       })
       .then((res) => {

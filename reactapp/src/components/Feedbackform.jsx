@@ -33,7 +33,7 @@ const handleSubmit = async (e) => {
     };
 
     await axios.post(
-      `http://localhost:8080/feedbacks/${appointmentId}`,
+      `https://blood-donor-backend-cibk.onrender.com/feedbacks/${appointmentId}`,
       feedback,
       { headers }
     );

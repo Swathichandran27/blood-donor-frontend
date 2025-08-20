@@ -42,14 +42,14 @@ const AdminAppointments = () => {
   const fetchAppointments = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("http://localhost:8080/api/appointments", {
+      const response = await axios.get("https://blood-donor-backend-cibk.onrender.com/api/appointments", {
         headers: { Authorization: `Bearer ${token}` }
       });
       setAppointments(response.data);
 
       const userIds = [...new Set(response.data.map(a => a.userId))];
       const userPromises = userIds.map(id =>
-        axios.get(`http://localhost:8080/api/users/${id}`, { headers: { Authorization: `Bearer ${token}` } })
+        axios.get(`https://blood-donor-backend-cibk.onrender.com/api/users/${id}`, { headers: { Authorization: `Bearer ${token}` } })
       );
       const userResponses = await Promise.all(userPromises);
 
@@ -71,7 +71,7 @@ const AdminAppointments = () => {
 
   const markCompleted = async (id) => {
     try {
-      await axios.put(`http://localhost:8080/api/appointments/${id}/complete`, {}, {
+      await axios.put(`https://blood-donor-backend-cibk.onrender.com/api/appointments/${id}/complete`, {}, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setAppointments(prev => prev.map(a => a.id === id ? { ...a, status: "Completed" } : a));
@@ -83,7 +83,7 @@ const AdminAppointments = () => {
   const cancelAppointment = async (id) => {
     if (window.confirm("Are you sure you want to cancel this appointment?")) {
       try {
-        await axios.delete(`http://localhost:8080/api/appointments/cancel/${id}`, {
+        await axios.delete(`https://blood-donor-backend-cibk.onrender.com/api/appointments/cancel/${id}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setAppointments(prev => prev.filter(a => a.id !== id));

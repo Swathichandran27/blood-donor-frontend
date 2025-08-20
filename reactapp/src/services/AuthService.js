@@ -1,7 +1,7 @@
 // Authentication service for JWT token management
 class AuthService {
   constructor() {
-    this.API_BASE_URL = 'http://localhost:8080/api';
+    this.API_BASE_URL = 'https://blood-donor-backend-cibk.onrender.com/api';
   }
 
   // Store token in localStorage

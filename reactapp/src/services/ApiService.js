@@ -2,7 +2,7 @@ import AuthService from './AuthService';
 
 class ApiService {
   constructor() {
-    this.API_BASE_URL = 'http://localhost:8080/api';
+    this.API_BASE_URL = 'https://blood-donor-backend-cibk.onrender.com/api';
   }
 
   // Helper method to make authenticated API calls

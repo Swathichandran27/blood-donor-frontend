@@ -3,7 +3,7 @@ import authService from "./AuthService";// your service that handles token stora
 
 // Create an axios instance
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:8080/api", // your backend base URL
+  baseURL: "https://blood-donor-backend-cibk.onrender.com/api", // your backend base URL
 });
 
 // Add request interceptor to attach JWT token automatically
