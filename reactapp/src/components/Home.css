@@ -1,0 +1,191 @@
+.hero {
+  background: url('https://media.istockphoto.com/id/1080150772/photo/girl-in-a-light-sweater-gives-a-knitted-heart.webp?a=1&b=1&s=612x612&w=0&k=20&c=0mvYynKnrDViOrYkrFmZmK05avi_zJY-BkQkWv74INg=') center/cover no-repeat;
+  min-height: 90vh;
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.card {
+  border-radius: 10px;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+/* Overall Page */
+.home-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0;
+  margin: 0;
+  background-color: #fdfdfd;
+  color: #333;
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(to right, #ff4d4d, #ff6666);
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.hero-section h1 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* Stats Section */
+.stats-section {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px 20px;
+  background-color: #fff5f5;
+}
+
+.stat-card {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  width: 180px;
+}
+
+.stat-card h2 {
+  color: #ff4d4d;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.stat-card p {
+  margin: 8px 0 0;
+  font-size: 1rem;
+}
+
+/* Features Section */
+.features-section {
+  padding: 50px 20px;
+  background-color: white;
+  text-align: center;
+}
+
+.features-section h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.feature-card {
+  background: #fff5f5;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.feature-card h3 {
+  color: #ff4d4d;
+  margin-bottom: 10px;
+}
+
+/* Urgent Requests Section */
+.urgent-section {
+  padding: 50px 20px;
+  background-color: #fff5f5;
+}
+
+.urgent-section h2 {
+  text-align: center;
+  color: #ff4d4d;
+  margin-bottom: 30px;
+}
+
+.urgent-card {
+  background: white;
+  padding: 20px;
+  margin: 10px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  max-width: 500px;
+}
+
+/* Testimonials */
+.testimonials-section {
+  background: white;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.testimonials-section h2 {
+  margin-bottom: 30px;
+}
+
+.testimonial {
+  background: #fff5f5;
+  padding: 20px;
+  margin: 10px auto;
+  border-radius: 10px;
+  max-width: 500px;
+  font-style: italic;
+}
+
+/* Call to Action */
+.cta-section {
+  background: linear-gradient(to right, #ff4d4d, #ff6666);
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.cta-section h2 {
+  margin-bottom: 15px;
+}
+
+.cta-button {
+  background: white;
+  color: #ff4d4d;
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  transition: background 0.3s;
+}
+
+.cta-button:hover {
+  background: #ffe6e6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .stats-section {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+

@@ -1,0 +1,15 @@
+# Node modules
+node_modules/
+reactapp/node_modules/
+
+# Build/cache folders
+.cache/
+build/
+dist/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,210 @@
+.donorDashboard {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f8f9fa;
+}
+
+.dashboardRow {
+  display: flex;
+  flex: 1;
+}
+
+.sidebarColumn {
+  width: 250px;
+  border-right: 1px solid #dee2e6;
+}
+
+.chatColumn {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+.chatContainer {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.chatHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #d64d5a;
+  color: white;
+  font-weight: bold;
+}
+
+.chatInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.chatTitle {
+  font-size: 1.2rem;
+}
+
+.chatStatus {
+  font-size: 0.85rem;
+  font-weight: normal;
+}
+
+.chatActions {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.messagesArea {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  background-color: #f1f3f5;
+}
+
+.welcomeMessage {
+  text-align: center;
+  color: #6c757d;
+  padding: 20px;
+}
+
+.messageContainer {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.myMessageContainer {
+  justify-content: flex-end;
+}
+
+.adminMessageContainer {
+  justify-content: flex-start;
+}
+
+.otherMessageContainer {
+  justify-content: flex-start;
+}
+
+.avatar {
+  width: 35px;
+  height: 35px;
+  background: #6c757d;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.messageContent {
+  max-width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+
+.senderName {
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.message {
+  padding: 10px 15px;
+  border-radius: 20px;
+  position: relative;
+  word-wrap: break-word;
+}
+
+.myMessage {
+  background-color: #eedbdd;
+  color: white;
+  border-bottom-right-radius: 0;
+}
+
+.adminMessage {
+  background-color: #343a40;
+  color: #fff;
+  border-bottom-left-radius: 0;
+}
+
+.otherMessage {
+  background-color: #e9ecef;
+  color: black;
+  border-bottom-left-radius: 0;
+}
+
+.messageMeta {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 0.7rem;
+  opacity: 0.7;
+  margin-top: 2px;
+}
+
+.time {
+  margin-left: 5px;
+}
+
+.sentIcon {
+  font-size: 0.8rem;
+  color: white;
+  margin-left: 5px;
+}
+
+.deliveredIcon {
+  font-size: 0.8rem;
+  color: #00bfff;
+  margin-left: 5px;
+}
+
+.readIcon {
+  font-size: 0.8rem;
+  color: #0dcaf0;
+  margin-left: 5px;
+}
+
+.chatInputArea {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-top: 1px solid #dee2e6;
+  background: #fff;
+}
+
+.attachmentButton, .voiceButton, .sendButton {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  color: #dc3545;
+  cursor: pointer;
+}
+
+.inputContainer {
+  flex: 1;
+  margin: 0 10px;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 25px;
+  border: 1px solid #ced4da;
+  outline: none;
+}
+
+.input:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 5px rgba(220, 53, 69, 0.5);
+}
