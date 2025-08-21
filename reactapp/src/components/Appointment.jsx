@@ -25,7 +25,7 @@ const Appointment = () => {
   useEffect(() => {
     const fetchCenters = async () => {
       try {
-        const res = await axios.get('http://localhost:8080/api/donationCenters');
+        const res = await axios.get('https://blood-donor-backend-cibk.onrender.com/api/donationCenters');
         setCenters(res.data);
       } catch {
         setErrors(prev => ({ ...prev, centers: 'Failed to load centers' }));
@@ -42,7 +42,7 @@ const Appointment = () => {
         return;
       }
       try {
-        const res = await axios.get("http://localhost:8080/api/appointments/available-slots", {
+        const res = await axios.get("https://blood-donor-backend-cibk.onrender.com/api/appointments/available-slots", {
           params: {
             centerId: Number(formData.centerId),
             date: formData.appointmentDate
@@ -109,7 +109,7 @@ const Appointment = () => {
 
     // ✅ Use await instead of then/catch mixing
     const res = await axios.post(
-      "http://localhost:8080/api/appointments/book",
+      "https://blood-donor-backend-cibk.onrender.com/api/appointments/book",
       payload,
       {
         headers: {
