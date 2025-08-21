@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { FaCalendarAlt, FaClock, FaTint, FaMapMarkerAlt } from 'react-icons/fa';
@@ -26,7 +25,7 @@ const Appointment = () => {
   useEffect(() => {
     const fetchCenters = async () => {
       try {
-        const res = await axios.get('https://blood-donor-backend-cibk.onrender.com/api/donationCenters');
+        const res = await axios.get('http://localhost:8080/api/donationCenters');
         setCenters(res.data);
       } catch {
         setErrors(prev => ({ ...prev, centers: 'Failed to load centers' }));
@@ -35,20 +34,32 @@ const Appointment = () => {
     fetchCenters();
   }, []);
 
-  // Fetch available slots
+  // Fetch available slots when centerId & date are selected
   useEffect(() => {
-    if (formData.centerId && formData.appointmentDate) {
-      axios
-        .get(`https://blood-donor-backend-cibk.onrender.com/api/appointments/available-slots`, {
+    const fetchSlots = async () => {
+      if (!formData.centerId || !formData.appointmentDate) {
+        setAvailableSlots([]);
+        return;
+      }
+      try {
+        const res = await axios.get("http://localhost:8080/api/appointments/available-slots", {
           params: {
-            centerId: formData.centerId,
+            centerId: Number(formData.centerId),
             date: formData.appointmentDate
+          },
+          headers: {
+            Authorization: `Bearer ${authService.getToken()}`
           }
-        })
-        .then(res => setAvailableSlots(res.data))
-        .catch(() => setAvailableSlots([]));
-    }
-  }, [formData.centerId, formData.appointmentDate]);
+        });
+        setAvailableSlots(res.data);
+      } catch (err) {
+        console.error("Error fetching slots:", err);
+        setAvailableSlots([]);
+      }
+    };
+
+    fetchSlots();
+  }, [formData.centerId, formData.appointmentDate]); // run only when these change
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -71,14 +82,14 @@ const Appointment = () => {
   const handleSubmit = async (e) => {
   e.preventDefault();
   if (!validate()) return;
+
   setIsSubmitting(true);
   setSuccessMsg('');
   setErrors({});
 
   try {
     const user = authService.getUserData();
-  const userId = user?.id;
-
+    const userId = user?.id;
 
     if (!userId) {
       setErrors(prev => ({
@@ -89,18 +100,22 @@ const Appointment = () => {
       return;
     }
 
-    // Format date and time correctly
     const payload = {
       ...formData,
       userId: Number(userId),
       appointmentDate: formData.appointmentDate, // yyyy-MM-dd
-      appointmentTime: formData.appointmentTime // HH:mm
+      appointmentTime: formData.appointmentTime  // HH:mm
     };
 
+    // ✅ Use await instead of then/catch mixing
     const res = await axios.post(
-      'https://blood-donor-backend-cibk.onrender.com/api/appointments/book',
+      "http://localhost:8080/api/appointments/book",
       payload,
-      { headers: { 'Content-Type': 'application/json' } }
+      {
+        headers: {
+          Authorization: `Bearer ${authService.getToken()}`
+        }
+      }
     );
 
     if (res.status === 200) {
@@ -114,8 +129,8 @@ const Appointment = () => {
       setAvailableSlots([]);
       setTimeout(() => navigate('/manage-appointments'), 2000);
     }
+
   } catch (err) {
-    // Convert error object to string for React
     let message = 'Failed to book appointment';
     if (err.response?.data) {
       if (typeof err.response.data === 'string') message = err.response.data;

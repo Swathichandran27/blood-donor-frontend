@@ -1,8 +1,10 @@
 .hero {
   background: url('https://media.istockphoto.com/id/1080150772/photo/girl-in-a-light-sweater-gives-a-knitted-heart.webp?a=1&b=1&s=612x612&w=0&k=20&c=0mvYynKnrDViOrYkrFmZmK05avi_zJY-BkQkWv74INg=') center/cover no-repeat;
-  min-height: 90vh;
+  height: 100vh;
   position: relative;
 }
+
+
 
 .hero::before {
   content: '';
@@ -188,4 +190,32 @@
     align-items: center;
   }
 }
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
 
+/* Adjust for fixed navbar */
+body {
+  padding-top: 70px;
+}
+
+
+.navbar-light .nav-link {
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.navbar-light .nav-link:hover {
+  color: #dc3545;
+}
+
+
+/* Make BloodConnect logo larger and more left aligned */
+.navbar-brand {
+  font-size: 2rem;   /* bigger text */
+  font-weight: 800;  /* bolder */
+  margin-left: -70px; /* shift left slightly */
+  letter-spacing: 1px;
+  color: #dc3545;
+}
