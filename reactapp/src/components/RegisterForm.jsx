@@ -16,7 +16,7 @@ const RegisterForm = () => {
     address: '',
     phone: '',
     referredBy: '',
-    role: 'DONOR'
+     role: '' 
   });
   
   const [errors, setErrors] = useState({});
@@ -189,6 +189,24 @@ const RegisterForm = () => {
                   <label htmlFor="referredBy" className="form-label"><FaIdCard className="me-2" /> Referral Code (Optional)</label>
                   <input type="text" className="form-control" id="referredBy" name="referredBy" value={formData.referredBy} onChange={handleChange} placeholder="Referral code"/>
                 </div>
+
+                {/* Role */}
+<div className="mb-3">
+  <label htmlFor="role" className="form-label"><FaUser className="me-2" /> Role</label>
+  <select
+    className={`form-select ${errors.role ? 'is-invalid' : ''}`}
+    id="role"
+    name="role"
+    value={formData.role}
+    onChange={handleChange}
+  >
+    <option value="">Select Role</option>
+    <option value="DONOR">Donor</option>
+    <option value="ADMIN">Admin</option>
+  </select>
+  {errors.role && <div className="invalid-feedback">{errors.role}</div>}
+</div>
+
 
                 <div className="d-grid mb-3">
                   <button type="submit" disabled={isSubmitting} className="btn btn-danger btn-lg">{isSubmitting ? 'Registering...' : 'Register as Donor'}</button>
